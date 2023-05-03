@@ -1,13 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import path from 'path';
-import { promises as fs } from 'fs';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import styles from '../styles/About.module.css';
-
-const HOUR = 60 * 60;
+import readJson from '../utils/readJson';
+import { HOUR } from '../utils/constants';
 
 export default function About({
   name, bio, image, github, linkedin,
@@ -64,9 +62,7 @@ About.defaultProps = {
 
 export async function getStaticProps() {
   try {
-    const jsonDirectory = path.join(process.cwd(), 'json');
-    const fileContents = await fs.readFile(`${jsonDirectory}/about.json`, 'utf8');
-    const data = JSON.parse(fileContents);
+    const data = await readJson('about.json');
     return {
       props: { ...data },
       revalidate: 24 * HOUR,

@@ -1,0 +1,25 @@
+.title {
+    font-size: 1.7rem;
+    line-height: 2rem;
+    padding: 10% 10% 20px 10%;
+}
+
+.projectsList {
+    margin: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+@media screen and (min-width: 992px) {
+    .projectsList {
+        display: grid;
+        grid-template:  auto / repeat(2, 1fr);
+        gap: 60px;
+        margin: 50px 10%;
+    }
+
+    .title {
+        padding: 50px 10% 0 10%;
+    }
+}
