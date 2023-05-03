@@ -1,7 +1,74 @@
-.container {
+.image {
+    --size: 350px;
+    margin: 20px auto 0 auto;
+    position: relative;
+    height: var(--size);
+    width: var(--size);
 }
 
-.image {
-    margin: 0 auto;
+.image img {
+    border-radius: 100%;
+    z-index: 2;
     position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.circle {
+    z-index: 1;
+    position: absolute;
+    border-radius: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    height: 80%;
+    width: 80%;
+    background-color: var(--accent-color);
+}
+
+.data {
+    margin: 30px 10%;
+}
+
+.name {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: black;
+    text-decoration: none;
+}
+
+.social .icon {
+    fill: var(--accent-color);
+    height: 25px;
+}
+
+.bio {
+    margin: 40px 10%;
+    text-align: justify;
+    white-space: pre-line
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        display: flex;
+        margin: 0 10%;
+        align-items: center;
+    }
+
+    .bio {
+        margin: 0 0 0 5%;
+    }
 }
