@@ -1,0 +1,12 @@
+.container {
+    margin: 10%;
+}
+
+.title {
+    color: var(--accent-color);
+    margin-bottom: -10px;
+}
+
+.title span {
+    color: black;
+}
