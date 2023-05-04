@@ -10,7 +10,7 @@ export default async function saveApplication(application) {
     await app.save();
     return true;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return false;
   }
 }

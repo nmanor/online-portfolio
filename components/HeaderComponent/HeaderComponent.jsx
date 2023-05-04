@@ -19,16 +19,16 @@ export default function HeaderComponent() {
   return (
     <header className={styles.container}>
       <div className={styles.menu}>
-        <button type="button" className={styles.burgerButton} onClick={handleMenuClick}>
-          <span className="material-symbols-rounded">
-            {menuOpen ? 'close' : 'menu'}
-          </span>
-        </button>
         <h1 className={styles.logo}>
           Natan&apos;s
           <br />
           <span>Portfolio</span>
         </h1>
+        <button type="button" className={styles.burgerButton} onClick={handleMenuClick}>
+          <span className="material-symbols-rounded">
+            {menuOpen ? 'close' : 'menu'}
+          </span>
+        </button>
       </div>
       <nav className={cx(styles.navigation, { [styles.visible]: menuOpen })}>
         <Link className={cx(styles.button, { [styles.selected]: router.asPath.match(/^\/$/) })} href="/">Home</Link>
