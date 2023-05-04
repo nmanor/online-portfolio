@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import toast from 'react-hot-toast';
 import styles from './ProjectCardComponent.module.css';
 
 export default function ProjectCardComponent({ title, year, description }) {
-  const handleClick = useCallback(() => alert('This is not a real project'), []);
+  const handleClick = useCallback(() => toast.error('This is not a real project...'), []);
 
   return (
     <section className={styles.container}>

@@ -3,6 +3,7 @@
 import React from 'react';
 import '../styles/globals.css';
 import PropTypes from 'prop-types';
+import { Toaster } from 'react-hot-toast';
 import HeaderComponent from '../components/HeaderComponent/HeaderComponent';
 
 export default function App({ Component, pageProps }) {
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps }) {
     <>
       <HeaderComponent />
       <Component {...pageProps} />
+      <Toaster position="bottom-center" />
     </>
   );
 }
