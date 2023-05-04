@@ -6,6 +6,8 @@ import readJson from '../utils/readJson';
 import { HOUR } from '../utils/constants';
 import ProjectCardComponent from '../components/ProjectCardComponent/ProjectCardComponent';
 
+const randomId = () => Math.round(Math.random() * 100000);
+
 export default function Projects({ projects }) {
   return (
     <>
@@ -18,8 +20,11 @@ export default function Projects({ projects }) {
       <main>
         <h1 className={styles.title}>Get a glimpse of the projects I worked on!</h1>
         <div className={styles.projectsList}>
-          {projects && projects.map(({ title, year, description }) => (
+          {projects && projects.map(({
+            id, title, year, description,
+          }) => (
             <ProjectCardComponent
+              key={id}
               title={title}
               year={year}
               description={description}
@@ -41,7 +46,8 @@ Projects.defaultProps = {
 
 export async function getStaticProps() {
   try {
-    const projects = await readJson('projects.json');
+    let projects = await readJson('projects.json');
+    projects = projects.map((project) => ({ ...project, id: randomId() }));
     return {
       props: { projects },
       revalidate: 24 * HOUR,
