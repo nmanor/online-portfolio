@@ -3,6 +3,7 @@
 import React from 'react';
 import Head from 'next/head';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 import styles from '../styles/Contact.module.css';
 
 export default function Contact() {
@@ -13,7 +14,8 @@ export default function Contact() {
       const form = e.target;
       const formData = new FormData(form);
       const formJson = Object.fromEntries(formData.entries());
-      console.log(formJson);
+
+      await axios.post('/api/send-application', formJson);
     };
 
     toast.promise(
@@ -56,9 +58,9 @@ export default function Contact() {
             <span>Subject</span>
             <input name="subject" id="subject" type="text" required />
           </label>
-          <label htmlFor="text" className={styles.label}>
+          <label htmlFor="content" className={styles.label}>
             <span>What did you have in mind?</span>
-            <textarea name="text" id="text" />
+            <textarea name="content" id="content" />
           </label>
           <div className={styles.buttonsBar}>
             <button type="reset" className={styles.button}>
